@@ -19,7 +19,7 @@ const App = () => {
       </nav>
       <Switch>
         <Route path="/pizza">
-          <Form cart={setOrder} setCart={setOrder} />
+          <Form order={order} setOrder={setOrder} />
         </Route>
         <Route exact path="/">
           <Home />
