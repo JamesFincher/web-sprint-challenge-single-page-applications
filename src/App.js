@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+
+//import components
+import Form from "./components/Form";
+import Home from "./components/Home";
+
+// import react router dom and its elements
+import { Route, Switch, Link, useParams } from "react-router-dom";
 
 const App = () => {
+  const [order, setOrder] = useState([]);
+
   return (
-    <>
+    <div className="App">
       <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/pizza">Order</Link>
+      </nav>
+      <Switch>
+        <Route path="/pizza">
+          <Form cart={setOrder} setCart={setOrder} />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </div>
   );
 };
 export default App;
